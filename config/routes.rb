@@ -2,12 +2,14 @@ Askaway::Application.routes.draw do
   resources :replies
 
   resources :topics do
-  	resources :replies,	:only => [:index, :create]
+  	resources :replies,	:only => [:create]
   end
 
-  resources :identities
+  resources :identities,	:only => [:show, :index]
 
-  resources :users do
+  devise_for :users, :controllers => { :registrations => "registrations" }
+
+  resources :users, :only => [:index, :show] do
 	resources :identities,	:only => [:new, :create]
 	resources :topics,		:only => [:new, :create]
   end
@@ -61,7 +63,7 @@ Askaway::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'users#index'
+  root :to => 'home#index'
 
   # See how all your routes lay out with "rake routes"
 

@@ -1,10 +1,10 @@
 Stories and Use Cases
 UC0	Authenticate
-UC1	Show User Account (Identities - DONE, Topics - DONE, Replies )
-UC2	Manage Identities
-UC3	Create Topics
-UC4	View Topics that 
-UC5	Post replies (public/private)
+UC1	Show User Account (Identities - DONE, Topics - DONE, Replies - DONE)
+UC2	Manage Identities - DONE
+UC3	Create Topics - DONE
+UC4	View Topics that involve the user - DONE 
+UC5	Post replies (public/private) - DONE
 
 TODO
 add dependent to all the places where it applies

@@ -17,6 +17,8 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'devise'
+gem 'cancan'
 #gem 'twitter/bootstrap'
 
 # Use unicorn as the web server

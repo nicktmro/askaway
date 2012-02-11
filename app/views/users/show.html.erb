@@ -71,12 +71,9 @@
 		<td><%= link_to "View conversation", topic %></td>
 	</tr>	
 <% end %>
-	<tr>
-		<td colspan="3"><%= link_to "Would you like to ask a New Question?", new_user_topic_path(@user)  %></td>
-	</tr>
 </table>
 
 
-<%= link_to 'Edit', edit_user_path(@user) %>
+<%= link_to 'Edit', edit_user_registration_path(@user) %>
 | 
 <%= link_to 'Back', users_path %>

@@ -1,4 +1,6 @@
 Askaway::Application.routes.draw do
+  resources :replies
+
   resources :topics
 
   resources :identities

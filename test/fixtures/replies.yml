@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  body: MyText
+  public: false
+  identity_id: 1
+  user_id: 1
+
+two:
+  body: MyText
+  public: false
+  identity_id: 1
+  user_id: 1

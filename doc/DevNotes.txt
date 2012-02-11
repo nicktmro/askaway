@@ -1,0 +1,39 @@
+Data Model
+
+Topic - DONE
+	title
+	body
+	belongsTo 	User
+	belongsTo	Addressee
+	hasMany		Replies
+	
+Reply (almost exactly the opposite of a Topic in terms of Addressee and User. Addressee owns the Reply)
+	body
+	public	
+	belongsTo Sender
+	belongsTo TopicOwner	
+	belongsTo Topic
+	
+User - DONE
+	name
+	Relationships:
+		hasMany Identities
+		hasMany Topics
+		hasMany Replies
+		
+Identity - DONE
+	identityType (Email, Phone Number, Twitter, etc)
+	identityValue (the way the user is identified on this channel: e.g @nicktmro on Twitter provider)
+	Relationships:
+		hasMany 	Topics
+		belongsTo	User
+		
+		
+Concepts:
+Identity 
+- unique user identifier: Phone number, email address, twitter handle, etc
+
+
+Homework:
+Identity abstract superclass: "Simple table inheritance"
+Topic#TopicOwner is redundant as I can navigate to it via the Topic itself.

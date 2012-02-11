@@ -46,8 +46,8 @@ class IdentitiesController < ApplicationController
 
     respond_to do |format|
       if @identity.save
-        format.html { redirect_to @identity, notice: 'Identity was successfully created.' }
-        format.json { render json: @identity, status: :created, location: @identity }
+        format.html { redirect_to @user, notice: 'Identity was successfully created.' }
+        format.json { render json: @user, status: :created, location: @user }
       else
         format.html { render action: "new" }
         format.json { render json: @identity.errors, status: :unprocessable_entity }

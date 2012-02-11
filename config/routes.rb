@@ -4,12 +4,10 @@ Askaway::Application.routes.draw do
   	resources :replies,	:only => [:create]
   end
 
-  resources :identities,    :only => [:show, :index]
-
   devise_for :users, :controllers => { :registrations => "registrations" }
 
   resources :users, :only => [:index, :show] do
-	resources :identities,	:only => [:new, :create]
+	resources :identities,	:only => [:show, :new, :create]
 	resources :topics,		:only => [:new, :create]
   end
 

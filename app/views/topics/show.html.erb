@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <b>Title:</b>
   <%= @topic.title %>
@@ -53,5 +51,4 @@
 <h2>You can always try to have the last say...</h2>
 <%= render 'replies/form' %>
 
-<!-- <%= link_to 'Edit', edit_topic_path(@topic) %> | -->
-<%= link_to 'Back', :back %>
+<%= link_to 'Back', user_path(current_user) %>

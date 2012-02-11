@@ -8,7 +8,7 @@ class Topic < ActiveRecord::Base
 	validates	:owner, :presence => true
 	
 	attr_accessor :addressee_identity_value
-	validate	:valid_identity_type 
+	validate	:valid_identity_value 
 	
 	# Callback to match the addressee identity. If one is not found then a new user with that addressee identity value will be created. 
 	before_create :lookup_addressee
@@ -17,7 +17,7 @@ class Topic < ActiveRecord::Base
 	#	Business logic
 	#
 	
-	def valid_identity_type
+	def valid_identity_value
 		#add our own custom error message
 		errors.add(:addressee_identity_value, "must be a phone number, email address or twitter handle") if IdentityUtils.identity_type_for(addressee_identity_value).blank?		
 	end
@@ -34,7 +34,15 @@ class Topic < ActiveRecord::Base
 			# validation has already been done via the custom validator
 			identity_type = IdentityUtils.identity_type_for(addressee_identity_value)			
 			
-			user = User.create
+			if identity_type == "Email"
+				email = addressee_identity_value
+			else				
+				email = "#{rand(100000)}@askaway.com"
+			end
+
+			# now create the user
+			user = User.create(:name => "Orphan Folk", :email => email, :password => "blahblah")
+						
 			self.addressee = user.identities.create(:identity_type => identity_type, :identity_value => addressee_identity_value) 
 		end	  
 	end

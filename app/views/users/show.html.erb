@@ -1,5 +1,3 @@
-<p id="notice">
-<%= notice %>
 </p>
 <h1>Welcome back, 
 <%= @user.name %> ! </h1>
@@ -24,7 +22,7 @@
 <%= identity.identity_value %>
 		</td>
 		<td>
-<%= link_to 'Edit', edit_identity_path(identity)  %>
+<%= link_to 'Details', user_identity_path(@user, identity)  %>
 		</td>
 	</tr>
 <% end %>

@@ -9,7 +9,7 @@ class Reply < ActiveRecord::Base
 	before_create :lookup_users
 	
 	def lookup_users
-		
-	  
+		self.topic_owner = self.topic.owner
+		self.sender = self.topic.addressee
 	end
 end

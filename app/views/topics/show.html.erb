@@ -36,11 +36,13 @@
 <% @topic.replies.each do |reply| %>
 	<tr>
 		<td>
+		<% unless reply.body.blank? %>
 			<% if reply.public? %>
 				Everybody knows:
 			<% else %>
 				Shhh...
 			<% end %>
+		<% end %>			
 		</td>
 		<td><%= reply.body %></td>
 	</tr>	

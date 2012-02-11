@@ -2,6 +2,7 @@
 <h1>Welcome back, 
 <%= @user.name %> ! </h1>
 <p>
+<% if can? :update, @user %>
 <table>
 	<tr>
 		<th>
@@ -31,6 +32,7 @@
 	</tr>
 </table>
 </p>
+<% end %>
 
 <!-- 										-->
 <!-- QUESTIONS ASKED BY THE CURRENT USER 	-->

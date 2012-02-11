@@ -26,6 +26,7 @@ class IdentitiesController < ApplicationController
   def new
     @user = User.find(params[:user_id])
     @identity = @user.identities.new
+    authorize! :new, @identity
 
     respond_to do |format|
       format.html # new.html.erb
@@ -43,6 +44,7 @@ class IdentitiesController < ApplicationController
   def create
   	@user = User.find(params[:user_id])
     @identity = @user.identities.new(params[:identity])
+    authorize! :create, @identity
 
     respond_to do |format|
       if @identity.save

@@ -1,5 +1,5 @@
 Stories and Use Cases
-UC0	Authenticate
+UC0	Authenticate - DONE
 UC1	Show User Account (Identities - DONE, Topics - DONE, Replies - DONE)
 UC2	Manage Identities - DONE
 UC3	Create Topics - DONE

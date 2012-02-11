@@ -1,4 +1,4 @@
-<%= form_for(@reply) do |f| %>
+<%= form_for([@topic, @reply]) do |f| %>
   <% if @reply.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@reply.errors.count, "error") %> prohibited this reply from being saved:</h2>
@@ -18,14 +18,6 @@
   <div class="field">
     <%= f.label :public %><br />
     <%= f.check_box :public %>
-  </div>
-  <div class="field">
-    <%= f.label :identity_id %><br />
-    <%= f.number_field :identity_id %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.number_field :user_id %>
   </div>
   <div class="actions">
     <%= f.submit %>

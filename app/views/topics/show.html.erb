@@ -16,12 +16,40 @@
 </p>
 
 <p>
-  <b>Going via:</b>
-  <%= @topic.addressee.identity_type %>
-  <b>to:</b>
+  <b>To:</b>
   <%= @topic.addressee.identity_value %>
+  <b>via:</b>  
+  <%= @topic.addressee.identity_type %>
 </p>
 
+<p />
+<!-- 		 -->
+<!-- Replies -->
+<!-- 		 -->
+<% unless @topic.replies.first.body.blank? %>
+<h2>Replies</h2>
+<table>
+	<tr>
+		<td></td>
+		<td>It was like...</td>
+	</tr>
+<% @topic.replies.each do |reply| %>
+	<tr>
+		<td>
+			<% if reply.public? %>
+				Everybody knows:
+			<% else %>
+				Shhh...
+			<% end %>
+		</td>
+		<td><%= reply.body %></td>
+	</tr>	
+<% end %>
+</table>
+<% end %>
+
+<h2>You can always try to have the last say...</h2>
+<%= render 'replies/form' %>
 
 <!-- <%= link_to 'Edit', edit_topic_path(@topic) %> | -->
 <%= link_to 'Back', :back %>

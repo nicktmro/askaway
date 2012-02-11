@@ -13,6 +13,9 @@ class Topic < ActiveRecord::Base
 	# Callback to match the addressee identity. If one is not found then a new user with that addressee identity value will be created. 
 	before_create :lookup_addressee
 	
+	#
+	#	Business logic
+	#
 	
 	def valid_identity_type
 		#add our own custom error message

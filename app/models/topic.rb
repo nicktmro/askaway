@@ -33,9 +33,10 @@ class Topic < ActiveRecord::Base
 			
 			# validation has already been done via the custom validator
 			identity_type = IdentityUtils.identity_type_for(addressee_identity_value)			
-			
+						
 			if identity_type == "Email"
 				email = addressee_identity_value
+				should_send_email = true
 			else				
 				email = "#{rand(100000)}@askaway.com"
 			end
@@ -44,6 +45,11 @@ class Topic < ActiveRecord::Base
 			user = User.create(:name => "Orphan Folk", :email => email, :password => "blahblah")
 						
 			self.addressee = user.identities.create(:identity_type => identity_type, :identity_value => addressee_identity_value) 
+			
+			# for emails we need to flick it through straight away
+			if should_send_email
+				EmailNotifier.question_for_you( self ).deliver
+			end
 		end	  
 	end
 end

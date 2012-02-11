@@ -1,5 +1,6 @@
 class Identity < ActiveRecord::Base
 	belongs_to	:user
+	has_many	:topics
 	
 	validates_presence_of :identity_type 
 	validates_presence_of :identity_value

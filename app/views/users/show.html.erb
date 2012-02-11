@@ -1,12 +1,8 @@
 <p id="notice">
 <%= notice %>
 </p>
-<p>
-	<b>
-		Name:
-	</b>
-<%= @user.name %>
-</p>
+<h1>Welcome back, 
+<%= @user.name %> ! </h1>
 <p>
 <table>
 	<tr>
@@ -38,6 +34,10 @@
 </table>
 </p>
 
+<!-- 										-->
+<!-- QUESTIONS ASKED BY THE CURRENT USER 	-->
+<!-- 										-->
+<h2>You've asked these questions... Or have you?</h2>
 <table>
 	<tr>
 		<td>Title</td>
@@ -53,6 +53,29 @@
 <% end %>
 	<tr><td colspan="3"><%= link_to "Would you like to ask a New Question?", new_user_topic_path(@user)  %></td></tr>
 </table>
+
+<!-- 											-->
+<!-- QUESTIONS THE CURRENT USER SHOULD ANSWER 	-->
+<!-- 											-->
+<h2>Questions asked of you. Please be nice and answer them...</h2>
+<table>
+	<tr>
+		<td>Title</td>
+		<td>Body</td>
+		<td></td>
+	</tr>
+<% @user.questions_to_answer.each do |topic| %>
+	<tr>
+		<td><%= topic.title %></td>
+		<td><%= topic.body %></td>
+		<td><%= link_to "View conversation", topic %></td>
+	</tr>	
+<% end %>
+	<tr>
+		<td colspan="3"><%= link_to "Would you like to ask a New Question?", new_user_topic_path(@user)  %></td>
+	</tr>
+</table>
+
 
 <%= link_to 'Edit', edit_user_path(@user) %>
 | 

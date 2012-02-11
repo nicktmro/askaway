@@ -1,12 +1,27 @@
 Stories and Use Cases
 UC0	Authenticate
-UC1	Show User Account (Identities - DONE, Topics, Replies)
+UC1	Show User Account (Identities - DONE, Topics - DONE, Replies)
 UC2	Manage Identities
 UC3	Create Topics
 UC4	View Topics that 
 UC5	Post replies (public/private)
 
 Data Model
+
+User - DONE
+	name
+	Relationships:
+		hasMany Identities
+		hasMany Topics
+		hasMany Replies
+		INDIRECTLY each Identity has Topics that are assigned to them. These must be aggregated!
+		
+Identity - DONE
+	identityType (Email, Phone Number, Twitter, etc)
+	identityValue (the way the user is identified on this channel: e.g @nicktmro on Twitter provider)
+	Relationships:
+		hasMany 	Topics
+		belongsTo	User		
 
 Topic - DONE
 	title
@@ -22,20 +37,6 @@ Reply (almost exactly the opposite of a Topic in terms of Addressee and User. Ad
 	belongsTo TopicOwner	
 	belongsTo Topic
 	
-User - DONE
-	name
-	Relationships:
-		hasMany Identities
-		hasMany Topics
-		hasMany Replies
-		
-Identity - DONE
-	identityType (Email, Phone Number, Twitter, etc)
-	identityValue (the way the user is identified on this channel: e.g @nicktmro on Twitter provider)
-	Relationships:
-		hasMany 	Topics
-		belongsTo	User
-		
 		
 Concepts:
 Identity 

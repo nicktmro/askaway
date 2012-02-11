@@ -1,5 +1,4 @@
 Askaway::Application.routes.draw do
-  resources :replies
 
   resources :topics do :only => [:show, :index]  do
   	resources :replies,	:only => [:create]

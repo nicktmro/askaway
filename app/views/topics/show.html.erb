@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @topic.title %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%= @topic.body %>
+</p>
+
+<p>
+  <b>Owner:</b>
+  <%= @topic.owner.name %>
+</p>
+
+<p>
+  <b>Going via:</b>
+  <%= @topic.addressee.identity_type %>
+  <b>to:</b>
+  <%= @topic.addressee.identity_value %>
+</p>
+
+
+<%= link_to 'Edit', edit_topic_path(@topic) %> |
+<%= link_to 'Back', topics_path %>

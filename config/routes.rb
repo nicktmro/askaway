@@ -1,4 +1,6 @@
 Askaway::Application.routes.draw do
+  resources :identities
+
   resources :users
 
   # The priority is based upon order of creation:

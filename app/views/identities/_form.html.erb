@@ -1,0 +1,25 @@
+<%= form_for(@identity) do |f| %>
+  <% if @identity.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@identity.errors.count, "error") %> prohibited this identity from being saved:</h2>
+
+      <ul>
+      <% @identity.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :identityType %><br />
+    <%= f.text_field :identityType %>
+  </div>
+  <div class="field">
+    <%= f.label :username %><br />
+    <%= f.text_field :username %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

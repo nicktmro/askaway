@@ -14,4 +14,5 @@ describe Identity do
 		identity = Identity.new(identity_type: "Phone", identity_value: "Another value")
 		identity.should be_valid
 	end
+	
 end

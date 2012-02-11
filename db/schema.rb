@@ -14,8 +14,9 @@
 ActiveRecord::Schema.define(:version => 20120211015622) do
 
   create_table "identities", :force => true do |t|
-    t.string   "identityType"
-    t.string   "username"
+    t.string   "identity_type"
+    t.string   "identity_value"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -32,4 +32,6 @@ group :development, :test do
   gem 'turn', :require => false
   gem 'pry'
   gem 'pry-doc'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
 end

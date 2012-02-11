@@ -1,15 +1,15 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Identitytype:</b>
-  <%= @identity.identityType %>
+  <b>Identity Type:</b>
+  <%= @identity.identity_type %>
 </p>
 
 <p>
   <b>Username:</b>
-  <%= @identity.username %>
+  <%= @identity.identity_value %>
 </p>
 
 
 <%= link_to 'Edit', edit_identity_path(@identity) %> |
-<%= link_to 'Back', identities_path %>
+<%= link_to 'Back', @identity.user %>

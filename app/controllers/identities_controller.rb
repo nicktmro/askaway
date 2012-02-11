@@ -24,7 +24,8 @@ class IdentitiesController < ApplicationController
   # GET /identities/new
   # GET /identities/new.json
   def new
-    @identity = Identity.new
+    @user = User.find(params[:user_id])
+    @identity = @user.identities.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,7 +41,8 @@ class IdentitiesController < ApplicationController
   # POST /identities
   # POST /identities.json
   def create
-    @identity = Identity.new(params[:identity])
+  	@user = User.find(params[:user_id])
+    @identity = @user.identities.new(params[:identity])
 
     respond_to do |format|
       if @identity.save

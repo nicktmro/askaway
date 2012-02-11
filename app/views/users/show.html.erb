@@ -1,10 +1,59 @@
-<p id="notice"><%= notice %></p>
-
+<p id="notice">
+<%= notice %>
+</p>
 <p>
-  <b>Name:</b>
-  <%= @user.name %>
+	<b>
+		Name:
+	</b>
+<%= @user.name %>
+</p>
+<p>
+<table>
+	<tr>
+		<th>
+			Identitiy type
+		</th>
+		<th>
+			Identity value
+		</th>
+		<th>
+		</th>
+	</tr>
+<% @user.identities.each do |identity| %>
+	<tr>
+		<td>
+<%= identity.identity_type %>
+		</td>
+		<td>
+<%= identity.identity_value %>
+		</td>
+		<td>
+<%= link_to 'Edit', edit_identity_path(identity)  %>
+		</td>
+	</tr>
+<% end %>
+	<tr>
+		<td colspan="3"><%= link_to "Would you like to add a New Identity?", new_user_identity_path(@user)  %></td>
+	</tr>
+</table>
 </p>
 
+<table>
+	<tr>
+		<td>Title</td>
+		<td>Body</td>
+		<td></td>
+	</tr>
+<% @user.topics.each do |topic| %>
+	<tr>
+		<td><%= topic.title %></td>
+		<td><%= topic.body %></td>
+		<td><%= link_to "View conversation", topic %></td>
+	</tr>	
+<% end %>
+	<tr><td colspan="3"><%= link_to "Would you like to ask a New Question?", new_user_topic_path(@user)  %></td></tr>
+</table>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Edit', edit_user_path(@user) %>
+| 
 <%= link_to 'Back', users_path %>

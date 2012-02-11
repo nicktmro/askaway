@@ -5,7 +5,10 @@ Askaway::Application.routes.draw do
 
   resources :identities
 
-  resources :users
+  resources :users do
+	resources :identities,	:only => [:new, :create]
+	resources :topics,		:only => [:new, :create]
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

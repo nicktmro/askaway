@@ -1,4 +1,4 @@
-<%= form_for(@identity) do |f| %>
+<%= form_for([@user, @identity]) do |f| %>
   <% if @identity.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@identity.errors.count, "error") %> prohibited this identity from being saved:</h2>
@@ -12,12 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :identityType %><br />
-    <%= f.text_field :identityType %>
+    <%= f.label :identity_type %><br />
+    <%= f.text_field :identity_type %>
   </div>
   <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username %>
+    <%= f.label :identity_value %><br />
+    <%= f.text_field :identity_value %>
   </div>
   <div class="actions">
     <%= f.submit %>

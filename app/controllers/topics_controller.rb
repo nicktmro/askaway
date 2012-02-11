@@ -24,7 +24,8 @@ class TopicsController < ApplicationController
   # GET /topics/new
   # GET /topics/new.json
   def new
-    @topic = Topic.new
+  	@owner = User.find(params[:user_id])
+    @topic = @owner.topics.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -39,8 +40,9 @@ class TopicsController < ApplicationController
 
   # POST /topics
   # POST /topics.json
-  def create
-    @topic = Topic.new(params[:topic])
+  def create  
+	@owner = User.find(params[:user_id])
+    @topic = @owner.topics.new(params[:topic])
 
     respond_to do |format|
       if @topic.save

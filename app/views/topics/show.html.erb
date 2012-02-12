@@ -32,6 +32,7 @@
 		<td>It was like...</td>
 	</tr>
 <% @topic.replies.each do |reply| %>
+<% if can? :show, reply %>
 	<tr>
 		<td>
 		<% unless reply.body.blank? %>
@@ -44,9 +45,10 @@
 		</td>
 		<td><%= reply.body %></td>
 	</tr>	
-<% end %>
+<% end %><!-- Ability -->	
+<% end %><!-- Replies -->
 </table>
-<% end %>
+<% end %><!-- Table -->
 
 <h2>You can always try to have the last say...</h2>
 <%= render 'replies/form' %>

@@ -4,6 +4,8 @@ class UsersController < ApplicationController
   def index
     @users = User.all
 
+	logger.info ("hello")
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @users }

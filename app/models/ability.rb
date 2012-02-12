@@ -16,6 +16,17 @@ class Ability
 
 	can :manage, Identity, :user_id => user.id
 	
+	can :show, Reply do |reply|
+		# fallback is to reject anyone else
+		authorized = false
+		
+		authorized ||= true if reply.sender.try(:user) == user		
+		authorized ||= true if reply.topic_owner == user		
+		authorized ||= true if reply.public?
+		
+		authorized
+	end
+	
 #	can :manage, Topic, :user_id => user.id
 		
     #

@@ -1,24 +1,22 @@
-Askaway is your new tool to ask anyone any question behind the veil of anonymity.
-
-Flow :
-
-You provide 
-- The question
-- Any contact handler like thier
--- Twitter pseudonim
--- Facebook id
--- Email
--- Phone number
-
-The contact replies and chooses to send their answer to either 
-- their public profile page
-- just to the person asking
-- no one and block you forever and the eternity
-
-Answers can also be conditioned on the asker revealing their identity.
+Askaway is a tool for asking questions behind the veil of anonymity.
 
 ==
-Brace yourselves: anonymous questions are coming. 
+Current Features
+
+To ask a question the user must provide:
+- The question body
+- A contact handler like thier
+-- Twitter handle
+-- Email address
+-- Phone number
+
+The askee has to option to  reply publicly or privately. 
+- a public reply will show up on their public profile page
+- a private reply will only be visible to the person who asked the question
 
 
+==
+TODO (contributions welcome)
+- the askee should have the ability to block the asker.
+- answers show have the ability to be conditioned on the asker revealing their identity.
 
